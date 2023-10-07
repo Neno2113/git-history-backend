@@ -1,36 +1,28 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
 import { GithubService } from './github.service';
-import { CreateGithubDto } from './dto/create-github.dto';
-import { UpdateGithubDto } from './dto/update-github.dto';
+import { GetGithubDto } from './dto/get-github.dto';
 
 @Controller('github')
 export class GithubController {
   constructor(private readonly githubService: GithubService) {}
 
-  @Post()
-  create(@Body() createGithubDto: CreateGithubDto) {
-    return this.githubService.create(createGithubDto);
+
+  @Get(':repo_name?')
+  findAllBranches(@Param('repo_name') repo_name: string = 'git-history') {
+    
+    return this.githubService.findAllBranches( repo_name );
   }
 
-  @Get('branches')
-  findAllBranches() {
-    return this.githubService.findAll();
+  @Get('/commits/:repo_name/:sha')
+  findAllCommits(@Param() params:GetGithubDto ) {
+    
+    if (!params.repo_name || !params.sha) {
+      throw new BadRequestException('Both params "repo_name" and "sha" are required.');
+    }
+
+    return this.githubService.findAllCommits(params.repo_name, params.sha);
   }
 
+ 
 
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.githubService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateGithubDto: UpdateGithubDto) {
-    return this.githubService.update(+id, updateGithubDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.githubService.remove(+id);
-  }
 }
