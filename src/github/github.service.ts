@@ -1,15 +1,28 @@
 import { Injectable } from '@nestjs/common';
 import { CreateGithubDto } from './dto/create-github.dto';
 import { UpdateGithubDto } from './dto/update-github.dto';
+import { AxiosAdapter } from '../common/adapters/axios.adapter';
+import { BranchesResponse } from './interfaces/github-branches.interface';
 
 @Injectable()
 export class GithubService {
+
+  constructor( 
+    private readonly http: AxiosAdapter
+  ){
+
+  }
+
+
+
   create(createGithubDto: CreateGithubDto) {
     return 'This action adds a new github';
   }
 
-  findAll() {
-    return `This action returns all github`;
+  async findAll() {
+    const data = await this.http.get<BranchesResponse>('https://api.github.com/repos/Neno2113/git-history/branches');
+
+    return data;
   }
 
   findOne(id: number) {

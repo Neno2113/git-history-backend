@@ -12,10 +12,12 @@ export class GithubController {
     return this.githubService.create(createGithubDto);
   }
 
-  @Get()
-  findAll() {
+  @Get('branches')
+  findAllBranches() {
     return this.githubService.findAll();
   }
+
+
 
   @Get(':id')
   findOne(@Param('id') id: string) {
