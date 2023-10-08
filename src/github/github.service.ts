@@ -19,7 +19,7 @@ export class GithubService {
   }
 
   async findAllCommits(repo_name: string, sha: string) {
-    const data =  await this.http.get<CommitsResponse>(`https://api.github.com/repos/Neno2113/${repo_name}/commits/${sha}`);
+    const data =  await this.http.get<CommitsResponse>(`https://api.github.com/repos/Neno2113/${repo_name}/commits?per_page=100&sha=${sha}`);
     return data
   }
 
