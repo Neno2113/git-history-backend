@@ -25,10 +25,11 @@
 ## GitHub - History - Backend
 
 1. Clone the project.
+  - ```git clone https://github.com/Neno2113/git-history-backend.git```
 
-2. Once finished go to the project folder and run the command in the console ```yarn install``` to install all of node_modules.
+2. Once finished go to the project folder and run the command in the console ```yarn install``` to install all of the node_modules.
 
-3. Clone the file ```.env.template``` and fill the ```PORT``` variable. 
+3. Clone the file ```.env.template``` and name ```.env``` the clone then fill the ```PORT``` variable. 
 
 4. Run the command in the folder of the project```yarn start:dev``` in order to start the project in development.
 
