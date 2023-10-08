@@ -22,52 +22,16 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## GitHub - History - Backend
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. Clone the project.
 
-## Installation
+2. Once finished go to the project folder and run the command in the console ```yarn install``` to install all of node_modules.
 
-```bash
-$ yarn install
-```
+3. Clone the file ```.env.template``` and fill the ```PORT``` variable. 
 
-## Running the app
+4. Run the command in the folder of the project```yarn start:dev``` in order to start the project in development.
 
-```bash
-# development
-$ yarn run start
+5. The project should be running in your localhost in the port you specify and the the API to test is 
+ - ```http://localhostt:PORT/api/github```
 
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
